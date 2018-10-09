@@ -1,4 +1,4 @@
-describe("Feature: normal items", function() {
+describe("Feature: Normal Items", function() {
 
   it("reduces the quality and sellIn value every time .updateQuality() is invoked", function() {
     const gildedRose = new Shop([ new Item("Bread", 5, 8) ]);
