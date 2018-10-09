@@ -33,6 +33,10 @@ So my stock quality updates appropriately
 I'd like all normal items to reduce in quality by 1 each day
 
 As a shop owner
+So I can get rid out of date stock more quickly
+I'd like items with sellIn < 0 to degrade in quality twice as quickly
+
+As a shop owner
 So I never pay people to take my stock away
 I'd like all items to have a minimum quality of 0
 

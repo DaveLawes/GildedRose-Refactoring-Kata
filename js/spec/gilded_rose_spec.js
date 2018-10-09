@@ -1,4 +1,4 @@
-describe("Gilded Rose", function() {
+describe("Shop", function() {
 
   it("should foo", function() {
     const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
