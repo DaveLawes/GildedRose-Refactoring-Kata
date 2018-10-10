@@ -1,32 +1,10 @@
 describe("Shop", function() {
   var item;
 
-  describe("._isNormal()", function() {
-
-    it("returns true for normal items", function() {
-      item = new Item("Bread", 5, 5);
-      const gildedRose = new Shop([item]);
-      expect(gildedRose._isNormal(item.name)).toEqual(true);
-    });
-
-    it("returns false for Sulfuras", function() {
-      item = new Item("Sulfuras", 5, 5);
-      const gildedRose = new Shop([item]);
-      expect(gildedRose._isNormal(item.name)).toEqual(false);
-    })
-
-    it("returns false for Aged Brie", function() {
-      item = new Item("Aged Brie", 5, 5);
-      const gildedRose = new Shop([item]);
-      expect(gildedRose._isNormal(item.name)).toEqual(false);
-    })
-
-  });
-
   describe(".updateQuality()", function() {
 
     it("returns an array of objects", function() {
-      item = {}
+      item = new Item("Bread", 1, 1)
       const gildedRose = new Shop([item]);
       const items = gildedRose.updateQuality();
       expect(items.constructor).toEqual(Array)
@@ -55,6 +33,28 @@ describe("Shop", function() {
       });
 
     });
+
+  });
+
+  describe("._isNormal()", function() {
+
+    it("returns true for normal items", function() {
+      item = new Item("Bread", 5, 5);
+      const gildedRose = new Shop([item]);
+      expect(gildedRose._isNormal(item.name)).toEqual(true);
+    });
+
+    it("returns false for Sulfuras", function() {
+      item = new Item("Sulfuras", 5, 5);
+      const gildedRose = new Shop([item]);
+      expect(gildedRose._isNormal(item.name)).toEqual(false);
+    })
+
+    it("returns false for Aged Brie", function() {
+      item = new Item("Aged Brie", 5, 5);
+      const gildedRose = new Shop([item]);
+      expect(gildedRose._isNormal(item.name)).toEqual(false);
+    })
 
   });
 
