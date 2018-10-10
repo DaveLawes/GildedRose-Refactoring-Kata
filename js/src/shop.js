@@ -14,44 +14,37 @@ class Shop {
       switch(true) {
 
         case(this._isNormal(item.name)):
-          item.quality === 0 ? item.quality = 0
+          item.quality === 0 ? item.quality =  0
           : item.sellIn >= 0 ? item.quality -= 1
                              : item.quality -= 2
           break;
 
         case(this._isAgedBrie(item.name)):
-          if (item.quality < 50 && item.sellIn >= 0) {
-            item.quality = item.quality + 1;
-          } else if (item.quality < 50 && item.sellIn < 0) {
-            item.quality = item.quality + 2;
-          }
+          item.quality >= 50   ? item.quality = 50
+          : item.sellIn >= 0   ? item.quality += 1
+                               : item.quality += 2
+
           break;
 
-        case(this._isBackstagePasses(this.items[i].name)):
-          if (this.items[i].quality < 50) {
-            if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
-              if (this.items[i].sellIn < 11) {
-                if (this.items[i].quality < 50) {
-                  this.items[i].quality = this.items[i].quality + 1;
-                }
-              }
-              if (this.items[i].sellIn < 6) {
-                if (this.items[i].quality < 50) {
-                  this.items[i].quality = this.items[i].quality + 1;
-                }
-              }
-            }
-          }
-          if (this.items[i].sellIn < 0) {
-              if (this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
-                this.items[i].quality = this.items[i].quality - this.items[i].quality;
-              }
+        case(this._isBackstagePasses(item.name)):
 
-            } else {
-              if (this.items[i].quality < 50) {
-                this.items[i].quality = this.items[i].quality + 1;
-              }
-            }
+          switch(true) {
+            case(item.sellIn < 0):
+              item.quality = 0;
+            break;
+
+            case(item.sellIn >=0 && item.sellIn <= 5):
+              item.quality += 3;
+            break;
+
+            case(item.sellIn >5 && item.sellIn <= 10):
+              item.quality += 2;
+            break;
+
+            case(item.sellIn > 10):
+              item.quality += 1;
+            break;
+          }
       }
     }
     return this.items;
