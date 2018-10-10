@@ -11,7 +11,7 @@
   Shop.prototype.updateQuality = function() {
     for (var i = 0; i < this.items.length; i++) {
       switch(true) {
-        case(this._isNormal(this.items[i].name)):
+        case(this._isNormalItem(this.items[i].name)):
           this.updateNormalItem(this.items[i]);
           break;
         case(this._isSpecialItem("Aged Brie", this.items[i].name)):
@@ -25,13 +25,13 @@
     return this.items;
   }
 
-  Shop.prototype._isNormal = function(item_name) {
+  Shop.prototype._isNormalItem = function(item_name) {
     const validation = name =>
-      name.search("Sulfuras") !== -1           ? false
-      : name.search("Aged Brie") !== -1        ? false
-      : name.search("Backstage passes") !== -1 ? false
-                                               : true
-    return validation(item_name);
+      this._isSpecialItem("Sulfuras", item_name)           ? false
+      : this._isSpecialItem("Aged Brie", item_name)        ? false
+      : this._isSpecialItem("Backstage passes", item_name) ? false
+                                                           : true
+    return validation();
   }
 
   Shop.prototype._isSpecialItem = function(special_name, item_name) {
