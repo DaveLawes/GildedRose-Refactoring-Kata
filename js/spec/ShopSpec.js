@@ -17,18 +17,13 @@ describe("Shop", function() {
         gildedRose.updateQuality();
       });
 
-      it("reduces the sellIn value by 1", function() {
-        expect(item.sellIn).toEqual(0);
-      });
-
-      it("reduces the quality value by 1", function() {
-        expect(item.quality).toEqual(0);
-      });
-
-      it("caps quality at 0", function() {
+      it("invokes update() on UpdateNormalItem", function() {
+        item = new Item("Bread", 1, 1);
         const gildedRose = new Shop([item]);
+        spyOn(gildedRose, 'updateNormalItem');
         gildedRose.updateQuality();
-        expect(item.quality).toEqual(0);
+        expect(gildedRose.updateNormalItem).toHaveBeenCalled();
+
       });
 
     });
