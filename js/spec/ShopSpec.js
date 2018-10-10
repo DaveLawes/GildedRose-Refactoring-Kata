@@ -26,10 +26,21 @@ describe("Shop", function() {
       it("invokes updateAgedBrie", function() {
         item = new Item("Aged Brie", 1, 1);
         const gildedRose = new Shop([item]);
-        console.log(gildedRose);
         spyOn(gildedRose, 'updateAgedBrie');
         gildedRose.updateQuality();
         expect(gildedRose.updateAgedBrie).toHaveBeenCalled();
+      });
+
+    });
+
+    describe("given backstage passes", function() {
+
+      it("invokes updateBackstagePasses", function() {
+        item = new Item("Backstage passes", 1, 1);
+        const gildedRose = new Shop([item]);
+        spyOn(gildedRose, 'updateBackstagePasses');
+        gildedRose.updateQuality();
+        expect(gildedRose.updateBackstagePasses).toHaveBeenCalled();
       });
 
     });

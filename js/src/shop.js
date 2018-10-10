@@ -5,12 +5,13 @@
       this.items = items;
       this.updateNormalItem = updateNormalItem;
       this.updateAgedBrie = updateAgedBrie;
+      this.updateBackstagePasses = updateBackstagePasses;
   };
 
   Shop.prototype.updateQuality = function() {
     for (var i = 0; i < this.items.length; i++) {
 
-      const item = this.items[i] // use item throughout case statement for ease of reading
+      const item = this.items[i]
 
       switch(true) {
 
@@ -23,17 +24,11 @@
           break;
 
         case(this._isBackstagePasses(item.name)):
-          this._updatePasses(item);
+          this.updateBackstagePasses(item);
           break;
       }
     }
     return this.items;
-  }
-
-  Shop.prototype._updateSellIn = function(item) {
-    if (!this._isSulfuras(item.name)) {
-      item.sellIn = item.sellIn - 1;
-    }
   }
 
   Shop.prototype._isNormal = function(item_name) {
@@ -66,24 +61,5 @@
     return validation(item_name);
   }
 
-  Shop.prototype._updatePasses = function(item) {
-    switch(true) {
-      case(item.sellIn < 0):
-        item.quality = 0;
-      break;
-
-      case(item.sellIn >=0 && item.sellIn <= 5):
-        item.quality += 3;
-      break;
-
-      case(item.sellIn >5 && item.sellIn <= 10):
-        item.quality += 2;
-      break;
-
-      case(item.sellIn > 10):
-        item.quality += 1;
-      break;
-    }
-  }
   exports.Shop = Shop;
 })(this);
