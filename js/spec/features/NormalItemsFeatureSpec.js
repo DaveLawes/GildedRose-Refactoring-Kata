@@ -4,10 +4,7 @@ describe("Feature: Normal Items", function() {
 
   it("reduces the quality and sellIn value every time .updateQuality() is invoked", function() {
     const gildedRose = new Shop([ new Item("Bread", 5, 8) ]);
-    console.log("test1");
-    console.log(gildedRose);
     const items = gildedRose.updateQuality();
-    console.log(items);
     expect(items[0].name).toEqual("Bread");
     expect(items[0].sellIn).toEqual(4);
     expect(items[0].quality).toEqual(7);

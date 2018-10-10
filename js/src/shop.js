@@ -4,6 +4,7 @@
   function Shop(items=[]) {
       this.items = items;
       this.updateNormalItem = updateNormalItem;
+      this.updateAgedBrie = updateAgedBrie;
   };
 
   Shop.prototype.updateQuality = function() {
@@ -11,18 +12,14 @@
 
       const item = this.items[i] // use item throughout case statement for ease of reading
 
-      // this._updateSellIn(item)
-
       switch(true) {
 
         case(this._isNormal(item.name)):
-          var updateditem = this.updateNormalItem(item);
-          console.log(updateditem);
-          // this._updateNormal(item);
+          this.updateNormalItem(item);
           break;
 
         case(this._isAgedBrie(item.name)):
-          this._updateAgedBrie(item);
+          this.updateAgedBrie(item);
           break;
 
         case(this._isBackstagePasses(item.name)):
@@ -67,18 +64,6 @@
       item_name.search("Backstage passes") > -1 ? true : false;
 
     return validation(item_name);
-  }
-
-  Shop.prototype._updateNormal = function(item) {
-    item.quality === 0 ? item.quality =  0
-    : item.sellIn >= 0 ? item.quality -= 1
-                       : item.quality -= 2
-  }
-
-  Shop.prototype._updateAgedBrie = function(item) {
-    item.quality >= 50   ? item.quality = 50
-    : item.sellIn >= 0   ? item.quality += 1
-                         : item.quality += 2
   }
 
   Shop.prototype._updatePasses = function(item) {
