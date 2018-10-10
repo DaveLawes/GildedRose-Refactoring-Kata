@@ -6,6 +6,7 @@
       this.updateNormalItem = updateNormalItem;
       this.updateAgedBrie = updateAgedBrie;
       this.updateBackstagePasses = updateBackstagePasses;
+      this.updateConjured = updateConjured;
   };
 
   Shop.prototype.updateQuality = function() {
@@ -20,6 +21,9 @@
         case(this._isSpecialItem("Backstage passes", this.items[i].name)):
           this.updateBackstagePasses(this.items[i]);
           break;
+        case(this._isSpecialItem("Conjured", this.items[i].name)):
+          this.updateConjured(this.items[i]);
+          break;
       }
     }
     return this.items;
@@ -30,6 +34,7 @@
       this._isSpecialItem("Sulfuras", item_name)           ? false
       : this._isSpecialItem("Aged Brie", item_name)        ? false
       : this._isSpecialItem("Backstage passes", item_name) ? false
+      : this._isSpecialItem("Conjured", item_name)         ? false
                                                            : true
     return validation();
   }
