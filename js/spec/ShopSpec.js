@@ -12,8 +12,7 @@ describe("Shop", function() {
     describe("given a normal item", function() {
 
       it("invokes updateNormalItem", function() {
-        item = new Item("Bread", 1, 1);
-        const gildedRose = new Shop([item]);
+        const gildedRose = new Shop([{ name: "Bread" }]);
         spyOn(gildedRose, 'updateNormalItem');
         gildedRose.updateQuality();
         expect(gildedRose.updateNormalItem).toHaveBeenCalled();
@@ -24,8 +23,7 @@ describe("Shop", function() {
     describe("given aged brie", function() {
 
       it("invokes updateAgedBrie", function() {
-        item = new Item("Aged Brie", 1, 1);
-        const gildedRose = new Shop([item]);
+        const gildedRose = new Shop([{ name: "Aged Brie" }]);
         spyOn(gildedRose, 'updateAgedBrie');
         gildedRose.updateQuality();
         expect(gildedRose.updateAgedBrie).toHaveBeenCalled();
@@ -36,8 +34,7 @@ describe("Shop", function() {
     describe("given backstage passes", function() {
 
       it("invokes updateBackstagePasses", function() {
-        item = new Item("Backstage passes", 1, 1);
-        const gildedRose = new Shop([item]);
+        const gildedRose = new Shop([{ name: "Backstage passes" }]);
         spyOn(gildedRose, 'updateBackstagePasses');
         gildedRose.updateQuality();
         expect(gildedRose.updateBackstagePasses).toHaveBeenCalled();
