@@ -16,7 +16,7 @@ describe("Update Aged Brie", function() {
   });
 
   it("caps highest quality at 50", function() {
-    item = new Item("Aged Brie", 1, 50)
+    item = new Item("Aged Brie", 0, 49)
     expect(updateAgedBrie(item).quality).toEqual(50);
   });
 
