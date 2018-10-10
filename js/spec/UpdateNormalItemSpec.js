@@ -4,7 +4,6 @@ describe("Update Normal Item", function() {
   var item;
 
   it("decreases sellIn by 1", function() {
-    // item = new Item("Bread", 1, 4)
     item = { name: "Bread", sellIn: 1, quality: 4 };
     expect(updateNormalItem(item).sellIn).toEqual(0);
   });
