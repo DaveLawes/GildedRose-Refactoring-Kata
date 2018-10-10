@@ -1,5 +1,26 @@
 # Gilded Rose Tech Test
 
+This is my solution in JavaScript to the Gilded Rose tech test. It's a simple app that allows the Gilded Rose shop to automatically up the quality of their stock, including for special items that have unique behaviour.
+
+The full instructions for this can be found [here](https://github.com/emilybache/GildedRose-Refactoring-Kata).
+
+*Tags: Jasmine, JavaScript, BDD, SOLID*
+
+## The App
+
+### Install
+
+Clone this repo to your local machine.
+
+### Test
+
+Open `SpecRunner.html` to run all Jasmine tests. For the current build all tests are passing.
+
+### Use
+
+To see the app working open `TexttestFixture.html`: it calculates the quality of each item over a number of days.
+
+
 ## Specification
 
 I've translated the basic specification:
