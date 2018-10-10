@@ -61,4 +61,11 @@ class Shop {
                                                : true
     return validation(item_name);
   }
+
+  _isSulfuras(item_name) {
+    const validation = name =>
+      item_name.search("Sulfuras") > -1 ? true : false;
+
+    return validation(item_name);
+  }
 }

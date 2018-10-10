@@ -58,4 +58,20 @@ describe("Shop", function() {
 
   });
 
+  describe("._isSulfuras()", function() {
+
+    it("returns true for 'Sulfuras'", function() {
+      item = new Item("Sulfuras", 5, 5);
+      const gildedRose = new Shop([item]);
+      expect(gildedRose._isSulfuras(item.name)).toEqual(true);
+    });
+
+    it("returns false otherwise", function() {
+      item = new Item("Aged Brie", 5, 5);
+      const gildedRose = new Shop([item]);
+      expect(gildedRose._isSulfuras(item.name)).toEqual(false);
+    })
+
+  });
+
 });
