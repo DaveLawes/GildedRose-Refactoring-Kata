@@ -1,3 +1,5 @@
+"use strict";
+
 describe("Item", function() {
 
   var item;

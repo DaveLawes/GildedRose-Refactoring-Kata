@@ -1,3 +1,5 @@
+"use strict";
+
 describe("Shop", function() {
   var item;
 
