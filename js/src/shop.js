@@ -10,21 +10,15 @@
 
   Shop.prototype.updateQuality = function() {
     for (var i = 0; i < this.items.length; i++) {
-
-      const item = this.items[i]
-
       switch(true) {
-
-        case(this._isNormal(item.name)):
-          this.updateNormalItem(item);
+        case(this._isNormal(this.items[i].name)):
+          this.updateNormalItem(this.items[i]);
           break;
-
-        case(this._isAgedBrie(item.name)):
-          this.updateAgedBrie(item);
+        case(this._isSpecialItem("Aged Brie", this.items[i].name)):
+          this.updateAgedBrie(this.items[i]);
           break;
-
-        case(this._isBackstagePasses(item.name)):
-          this.updateBackstagePasses(item);
+        case(this._isSpecialItem("Backstage passes", this.items[i].name)):
+          this.updateBackstagePasses(this.items[i]);
           break;
       }
     }
@@ -40,25 +34,10 @@
     return validation(item_name);
   }
 
-  Shop.prototype._isSulfuras = function(item_name) {
+  Shop.prototype._isSpecialItem = function(special_name, item_name) {
     const validation = name =>
-      item_name.search("Sulfuras") > -1 ? true : false;
-
-    return validation(item_name);
-  }
-
-  Shop.prototype._isAgedBrie = function(item_name) {
-    const validation = name =>
-      item_name.search("Aged Brie") > -1 ? true : false;
-
-    return validation(item_name);
-  }
-
-  Shop.prototype._isBackstagePasses = function(item_name) {
-    const validation = name =>
-      item_name.search("Backstage passes") > -1 ? true : false;
-
-    return validation(item_name);
+      item_name.search(special_name) > -1 ? true : false;
+    return validation();
   }
 
   exports.Shop = Shop;
