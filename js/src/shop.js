@@ -52,4 +52,13 @@ class Shop {
 
     return this.items;
   }
+
+  _isNormal(item_name) {
+    const validation = name =>
+      name.search("Sulfuras") !== -1           ? false
+      : name.search("Aged Brie") !== -1        ? false
+      : name.search("Backstage passes") !== -1 ? false
+                                               : true
+    return validation(item_name);
+  }
 }
