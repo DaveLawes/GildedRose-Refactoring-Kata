@@ -3,6 +3,13 @@
 (function(exports) {
   function Update() {};
 
+  Update.prototype.normalItem = function(item) {
+    _updateSellIn.call(this, item);
+    item.sellIn >= 0  ? item.quality -= 1 : item.quality -= 2;
+    item.quality <= 0 ? item.quality = 0  : null;    
+    return item;
+  };
+
   Update.prototype.agedBrie = function(item) {
     _updateSellIn.call(this, item);
     item.sellIn >= 0   ? item.quality += 1 : item.quality += 2;
