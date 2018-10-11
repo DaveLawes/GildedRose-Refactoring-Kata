@@ -1,28 +1,25 @@
 'use strict';
 
 (function(exports) {
-  function Shop(items=[]) {
+  function Shop(items=[], update = new Update()) {
       this.items = items;
-      this.updateNormalItem = updateNormalItem;
-      this.updateAgedBrie = updateAgedBrie;
-      this.updateBackstagePasses = updateBackstagePasses;
-      this.updateConjured = updateConjured;
+      this.update = update;
   };
 
   Shop.prototype.updateQuality = function() {
     for (let i = 0; i < this.items.length; i++) {
       switch(true) {
         case(_isNormalItem.call(this, this.items[i].name)):
-          this.updateNormalItem(this.items[i]);
+          this.update.normalItem(this.items[i]);
           break;
         case(_isSpecialItem.call(this, 'Aged Brie', this.items[i].name)):
-          this.updateAgedBrie(this.items[i]);
+          this.update.agedBrie(this.items[i]);
           break;
         case(_isSpecialItem.call(this, 'Backstage passes', this.items[i].name)):
-          this.updateBackstagePasses(this.items[i]);
+          this.update.backstagePasses(this.items[i]);
           break;
         case(_isSpecialItem.call(this, 'Conjured', this.items[i].name)):
-          this.updateConjured(this.items[i]);
+          this.update.conjured(this.items[i]);
           break;
       }
     }
