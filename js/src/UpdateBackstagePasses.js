@@ -17,8 +17,8 @@
         item.quality += 1;
         break;
     }
-    item.quality > 50 ? item.quality = 50 : null
-    return item
+    item.quality > 50 ? item.quality = 50 : null;
+    return item;
   }
 
   exports.updateBackstagePasses = updateBackstagePasses;

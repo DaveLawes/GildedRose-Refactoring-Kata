@@ -1,14 +1,13 @@
 "use strict";
 
 describe("Shop", function() {
-  var item;
 
   describe(".updateQuality()", function() {
 
     it("returns an array of objects", function() {
       const gildedRose = new Shop();
       const items = gildedRose.updateQuality();
-      expect(items.constructor).toEqual(Array)
+      expect(items.constructor).toEqual(Array);
     });
 
     describe("given a normal item", function() {

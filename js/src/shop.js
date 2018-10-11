@@ -10,7 +10,7 @@
   };
 
   Shop.prototype.updateQuality = function() {
-    for (var i = 0; i < this.items.length; i++) {
+    for (let i = 0; i < this.items.length; i++) {
       switch(true) {
         case(_isNormalItem.call(this, this.items[i].name)):
           this.updateNormalItem(this.items[i]);
@@ -35,7 +35,7 @@
       : _isSpecialItem.call(this, "Aged Brie", item_name)        ? false
       : _isSpecialItem.call(this, "Backstage passes", item_name) ? false
       : _isSpecialItem.call(this, "Conjured", item_name)         ? false
-                                                                 : true
+                                                                 : true;
     return validation();
   }
 

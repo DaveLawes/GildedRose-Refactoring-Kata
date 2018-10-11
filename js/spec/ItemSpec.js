@@ -2,11 +2,7 @@
 
 describe("Item", function() {
 
-  var item;
-
-  beforeEach(function() {
-    item = new Item("Bread", 5, 8);
-  });
+  let item = new Item("Bread", 5, 8);
 
   it("constructs an Item prototype", function() {
     expect(item.constructor).toEqual(Item);
