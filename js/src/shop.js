@@ -38,7 +38,7 @@
 
   function _isSpecialItem(special_name, item_name) {
     const validation = name =>
-      item_name.search(special_name) > -1 ? true : false;
+      item_name.toLowerCase().search(special_name.toLowerCase()) > -1 ? true : false;
     return validation();
   }
 

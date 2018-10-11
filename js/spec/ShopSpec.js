@@ -31,7 +31,7 @@ describe('Shop', function() {
       spyOn(update, 'backstagePasses');
       gildedRose.updateQuality();
       expect(update.backstagePasses).toHaveBeenCalled();
-    });
+    });''
 
     it('given conjured item: invokes update.conjured', function() {
       const gildedRose = new Shop([{ name: 'Conjured' }], update);
