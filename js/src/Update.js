@@ -37,6 +37,13 @@
     return item;
   };
 
+  Update.prototype.conjured = function(item) {
+    _updateSellIn.call(this, item);
+    item.sellIn >= 0  ? item.quality -= 2 : item.quality -= 4;
+    item.quality <= 0 ? item.quality = 0  : null;
+    return item;
+  };
+
   function _updateSellIn(item) {
     item.sellIn -= 1;
   };
