@@ -5,15 +5,15 @@
 
   Update.prototype.normalItem = function(item) {
     _updateSellIn.call(this, item);
-    item.sellIn >= 0  ? item.quality -= 1 : item.quality -= 2;
-    item.quality <= 0 ? item.quality = 0  : null;
+    _updateQuality.call(this, item, -1, -2);
+    _applyMinCap.call(this, item);
     return item;
   };
 
   Update.prototype.agedBrie = function(item) {
     _updateSellIn.call(this, item);
-    item.sellIn >= 0   ? item.quality += 1 : item.quality += 2;
-    item.quality >= 50 ? item.quality = 50 : null;
+    _updateQuality.call(this, item, 1, 2);
+    _applyMaxCap.call(this, item);
     return item;
   };
 
@@ -33,19 +33,31 @@
         item.quality += 1;
         break;
     }
-    item.quality > 50 ? item.quality = 50 : null;
+    _applyMaxCap.call(this, item);
     return item;
   };
 
   Update.prototype.conjured = function(item) {
     _updateSellIn.call(this, item);
-    item.sellIn >= 0  ? item.quality -= 2 : item.quality -= 4;
-    item.quality <= 0 ? item.quality = 0  : null;
+    _updateQuality.call(this, item, -2, -4);
+    _applyMinCap.call(this, item);
     return item;
   };
 
   function _updateSellIn(item) {
     item.sellIn -= 1;
+  };
+
+  function _updateQuality(item, gtZero, ltZero) {
+    item.sellIn >= 0  ? item.quality += gtZero : item.quality += ltZero;
+  };
+
+  function _applyMinCap(item) {
+    item.quality <= 0 ? item.quality = 0  : null;
+  };
+
+  function _applyMaxCap(item) {
+    item.quality >= 50 ? item.quality = 50 : null;
   };
 
   exports.Update = Update;
