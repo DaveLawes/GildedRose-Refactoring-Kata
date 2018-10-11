@@ -1,6 +1,9 @@
 'use strict';
 
 (function(exports) {
+  const MAX = 50;
+  const MIN = 0;
+
   function Update() {};
 
   Update.prototype.normalItem = function(item) {
@@ -14,6 +17,13 @@
     _updateSellIn.call(this, item);
     _updateQuality.call(this, item, 1, 2);
     _applyMaxCap.call(this, item);
+    return item;
+  };
+
+  Update.prototype.conjured = function(item) {
+    _updateSellIn.call(this, item);
+    _updateQuality.call(this, item, -2, -4);
+    _applyMinCap.call(this, item);
     return item;
   };
 
@@ -37,13 +47,6 @@
     return item;
   };
 
-  Update.prototype.conjured = function(item) {
-    _updateSellIn.call(this, item);
-    _updateQuality.call(this, item, -2, -4);
-    _applyMinCap.call(this, item);
-    return item;
-  };
-
   function _updateSellIn(item) {
     item.sellIn -= 1;
   };
@@ -53,11 +56,11 @@
   };
 
   function _applyMinCap(item) {
-    item.quality <= 0 ? item.quality = 0  : null;
+    item.quality <= MIN ? item.quality = MIN  : null;
   };
 
   function _applyMaxCap(item) {
-    item.quality >= 50 ? item.quality = 50 : null;
+    item.quality >= MAX ? item.quality = MAX : null;
   };
 
   exports.Update = Update;
