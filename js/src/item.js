@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function Item(name, sellIn, quality) {
   this.name = name;

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 (function(exports) {
   function Shop(items=[]) {
@@ -15,13 +15,13 @@
         case(_isNormalItem.call(this, this.items[i].name)):
           this.updateNormalItem(this.items[i]);
           break;
-        case(_isSpecialItem.call(this, "Aged Brie", this.items[i].name)):
+        case(_isSpecialItem.call(this, 'Aged Brie', this.items[i].name)):
           this.updateAgedBrie(this.items[i]);
           break;
-        case(_isSpecialItem.call(this, "Backstage passes", this.items[i].name)):
+        case(_isSpecialItem.call(this, 'Backstage passes', this.items[i].name)):
           this.updateBackstagePasses(this.items[i]);
           break;
-        case(_isSpecialItem.call(this, "Conjured", this.items[i].name)):
+        case(_isSpecialItem.call(this, 'Conjured', this.items[i].name)):
           this.updateConjured(this.items[i]);
           break;
       }
@@ -31,10 +31,10 @@
 
   function _isNormalItem(item_name) {
     const validation = name =>
-      _isSpecialItem.call(this, "Sulfuras", item_name)           ? false
-      : _isSpecialItem.call(this, "Aged Brie", item_name)        ? false
-      : _isSpecialItem.call(this, "Backstage passes", item_name) ? false
-      : _isSpecialItem.call(this, "Conjured", item_name)         ? false
+      _isSpecialItem.call(this, 'Sulfuras', item_name)           ? false
+      : _isSpecialItem.call(this, 'Aged Brie', item_name)        ? false
+      : _isSpecialItem.call(this, 'Backstage passes', item_name) ? false
+      : _isSpecialItem.call(this, 'Conjured', item_name)         ? false
                                                                  : true;
     return validation();
   }
