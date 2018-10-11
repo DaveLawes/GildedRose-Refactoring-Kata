@@ -89,3 +89,29 @@ As a shop owner
 To take advantage of "conjured" items short shelf life
 I'd like the quality to decrease by 2 for every day that passes
 ```
+
+## Domain Model
+
+```
+
+╔════════════╗  
+║            ║ 
+║    Item    ║  Stores state   
+║            ║
+╚════════════╝
+      |
+      | [ array of Items passed into Shop upon instantiation ]
+      |                                   
+╔════════════╗     
+║            ║  Controls the update of quality     
+║    Shop    ║  Returns updated array of Items
+║            ║      
+╚════════════╝      
+       |                           ╔════════════╗
+       |                           ║            ║      
+       |-------------------------->║   Update   ║  Modifies state
+                                   ║            ║ 
+                                   ╚════════════╝  
+                   
+                                            
+```
