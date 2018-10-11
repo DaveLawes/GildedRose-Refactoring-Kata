@@ -52,11 +52,11 @@
   };
 
   function _updateQuality(item, gtZero, ltZero) {
-    item.sellIn >= 0  ? item.quality += gtZero : item.quality += ltZero;
+    item.sellIn >= 0 ? item.quality += gtZero : item.quality += ltZero;
   };
 
   function _applyMinCap(item) {
-    item.quality <= MIN ? item.quality = MIN  : null;
+    item.quality <= MIN ? item.quality = MIN : null;
   };
 
   function _applyMaxCap(item) {
