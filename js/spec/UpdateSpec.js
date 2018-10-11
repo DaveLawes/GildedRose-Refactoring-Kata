@@ -21,7 +21,7 @@ describe('Update', function() {
       expect(update.agedBrie(item).quality).toEqual(6);
     });
 
-    it('caps highest quality at 50', function() {
+    it('caps maximum quality at 50', function() {
       let item = { name: 'Aged Brie', sellIn: 0, quality: 49 };
       expect(update.agedBrie(item).quality).toEqual(50);
     });
@@ -45,7 +45,7 @@ describe('Update', function() {
       expect(update.normalItem(item).quality).toEqual(2);
     });
 
-    it('caps lowest quality at 0', function() {
+    it('caps minimum quality at 0', function() {
       let item = { name: 'Bread', sellIn: 1, quality: 0 };
       expect(update.normalItem(item).quality).toEqual(0);
     });
@@ -74,7 +74,7 @@ describe('Update', function() {
       expect(update.backstagePasses(item).quality).toEqual(7);
     });
 
-    it('caps highest quality at 50', function() {
+    it('caps maximum quality at 50', function() {
       let item = { name: 'Backstage passes', sellIn: 1, quality: 49 };
       expect(update.backstagePasses(item).quality).toEqual(50);
     });
@@ -103,7 +103,7 @@ describe('Update', function() {
       expect(update.conjured(item).quality).toEqual(1);
     });
 
-    it('caps lowest quality at 0', function() {
+    it('caps minimum quality at 0', function() {
       let item = { name: 'Conjured Mana Cake', sellIn: 1, quality: 1 };
       expect(update.conjured(item).quality).toEqual(0);
     });
