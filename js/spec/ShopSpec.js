@@ -11,7 +11,7 @@ describe('Shop', function() {
 
     beforeEach(function(){
       spyOn(Type, 'getType').and.returnValue(item);
-      spyOn(item, 'update')
+      spyOn(item, 'update');
       items = gildedRose.updateQuality();
     })
 
