@@ -3,25 +3,30 @@
 (function(exports) {
 
   class Type {
-    static getType(item) {
+    static getType(item,
+                    agedBrie = AgedBrie,
+                    sulfuras = Sulfuras,
+                    conjured = Conjured,
+                    backstagePasses = BackstagePasses,
+                    normal = Normal) {
       if (item.name.toLowerCase().includes('aged brie')) {
-        return new AgedBrie(item.name, item.sellIn, item.quality);
+        return new agedBrie(item.name, item.sellIn, item.quality);
       }
       else if (item.name.toLowerCase().includes('sulfuras')) {
-        return new Sulfuras(item.name, item.sellIn, item.quality);
+        return new sulfuras(item.name, item.sellIn, item.quality);
       }
       else if (item.name.toLowerCase().includes('conjured')) {
-        return new Conjured(item.name, item.sellIn, item.quality);
+        return new conjured(item.name, item.sellIn, item.quality);
       }
       else if (item.name.toLowerCase().includes('backstage passes')) {
-        return new BackstagePasses(item.name, item.sellIn, item.quality);
+        return new backstagePasses(item.name, item.sellIn, item.quality);
       }
       else {
-        return new Normal(item.name, item.sellIn, item.quality);
+        return new normal(item.name, item.sellIn, item.quality);
       }
 
     }
   }
 
-  exports.Type = Type
+  exports.Type = Type;
 })(this);

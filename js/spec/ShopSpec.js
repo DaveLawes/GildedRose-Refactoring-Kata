@@ -13,9 +13,12 @@ describe('Shop', function() {
     });
 
     it('invokes Type.getType', function() {
-      const gildedRose = new Shop([], type);
+      console.log(type);
+      let item = {}
+      const gildedRose = new Shop([item], type);
       spyOn(type, 'getType');
       gildedRose.updateQuality();
+      console.log(type.getType);
       expect(type.getType).toHaveBeenCalled();
     })
 
