@@ -7,9 +7,9 @@
   };
 
   Shop.prototype.updateQuality = function() {
-    var new_items = this.items.map(item => this.Type.getType(item));
-    new_items.forEach(item => item.update())
-    return new_items;
+    var newItems = this.items.map(item => this.Type.getType(item));
+    newItems.forEach(item => item.update())
+    return newItems;
   }
 
   exports.Shop = Shop;

@@ -4,11 +4,11 @@
 
   class Type {
     static getType(item,
-                    agedBrie = AgedBrie,
-                    sulfuras = Sulfuras,
-                    conjured = Conjured,
-                    backstagePasses = BackstagePasses,
-                    normal = Normal) {
+                   agedBrie = AgedBrie,
+                   sulfuras = Sulfuras,
+                   conjured = Conjured,
+                   backstagePasses = BackstagePasses,
+                   normal = Normal) {
       if (item.name.toLowerCase().includes('aged brie')) {
         return new agedBrie(item.name, item.sellIn, item.quality);
       }
