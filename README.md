@@ -117,7 +117,7 @@ I'd like the update system to be cases insensitive
     |     |  
     |     |                        ╔════════════╗
     |     |                        ║            ║      
-    |     |------------------------║   Update   ║  Modifies state
+    |     |------------------------║    Type    ║  Maps item type to class and returns new object
     |                              ║            ║ 
     |                              ╚════════════╝ 
     |   
@@ -125,11 +125,22 @@ I'd like the update system to be cases insensitive
     | [ array of Items passed into Shop upon instantiation ]           
     |   
 ╔════════════╗  
-║            ║ 
-║    Item    ║  Stores state   
-║            ║
-╚════════════╝                                                 
+║            ║  Stores state
+║    Item    ║    
+║            ║  
+╚════════════╝  
 ```
+	
+Classes that inherit from Item:
+
+	- Normal
+	- AgedBrie
+	- BackstagePasses
+	- Sulfuras
+	- Conjured                                               
+
+All these classes have an `update()` defined which reduces the sellIn and quality according to the specification.
+
 
 ## Process
 
@@ -142,7 +153,3 @@ My focus was to create clean, readable and easily modifiable code. To highlight 
 * Commit (regularly!) with a semantic message and add a comment if I feel it is necessary.
 * Refactor and ensure my tests still pass.
 
-
-## Areas of Improvement
-
-I'd like to add prototype functions to the Item class. I felt like it should be the item's responsibility to know what type of item it is. Currently this logic is within the Shop class. However, out of respect for the specification, I have left the Item class untouched.
